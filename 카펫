@@ -1,0 +1,28 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(int brown, int yellow) {
+    vector<int> answer;
+    int add = (brown-4)/2;
+    int v,h;
+    for(int i=1; i<add; i++)
+    {
+        v=i;
+        h=add-i;
+        if(v*h==yellow){
+            answer.push_back(h+2);
+            answer.push_back(v+2);
+            break;
+        }
+    }
+    
+    return answer;
+}
+
+1. x+y = (brown - 4) / 2  //brown 개수에서 꼭짓점 4개를 빼면 2x+2y = brown - 4 가 되고 양변을 2로 나눈다.
+
+2.  x * y = red 
+
+1번으로 y = (brown-4)/2 - x 라는 공식을 얻을 수 있고 y를 1부터 1씩 증가시켜가며 x * ((brown-4)/2 - y) == red 인 것을 찾으면 된다.
